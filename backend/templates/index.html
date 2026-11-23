@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConnectHub</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">ConnectHub</a>
+    <nav id="nav-links"></nav>
+  </header>
+
+  <main class="layout">
+    <section class="main-col">
+
+      <div id="auth-section" class="card hidden">
+        <h2>Join ConnectHub</h2>
+        <div class="auth-grid">
+          <div>
+            <h3>Register</h3>
+            <input id="reg-username" placeholder="Username">
+            <input id="reg-email" placeholder="Email (optional)">
+            <input id="reg-password" type="password" placeholder="Password (min 6 characters)">
+            <button onclick="register()">Register</button>
+            <p id="reg-msg" class="msg"></p>
+          </div>
+          <div>
+            <h3>Login</h3>
+            <input id="login-username" placeholder="Username">
+            <input id="login-password" type="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p id="login-msg" class="msg"></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="new-post" class="card hidden">
+        <textarea id="post-content" maxlength="500" placeholder="What's on your mind?"></textarea>
+        <button onclick="createPost()">Post</button>
+        <p id="post-msg" class="msg"></p>
+      </div>
+
+      <div class="tabs">
+        <button id="tab-all" class="tab active" onclick="loadFeed('all')">All posts</button>
+        <button id="tab-following" class="tab" onclick="loadFeed('following')">Following</button>
+      </div>
+      <div id="feed"></div>
+    </section>
+
+    <aside class="side-col">
+      <div class="card">
+        <h3>People</h3>
+        <div id="people"></div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="/static/app.js"></script>
+  <script>initHome();</script>
+</body>
+</html>
